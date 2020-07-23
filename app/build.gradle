@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "30.0.0"
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId "net.majorkernelpanic.spydroid"
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation project(path: ':libstreaming')
+
+    compile files('libs/sc-light-jdk15on-1.47.0.2.jar')
+    compile files('libs/scpkix-jdk15on-1.47.0.2.jar')
+    compile files('libs/scprov-jdk15on-1.47.0.2.jar')
+}
